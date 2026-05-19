@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "setup": "bash scripts/setup.sh",
+    "dev": "next dev --turbopack --port 4000",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "next start --port 4000",
+    "lint": "eslint",
+    "typecheck": "bunx tsc --noEmit",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "next": "16.2.6",

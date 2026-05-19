@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Playground
 
-## Getting Started
+A starter playground for design-to-code experiments. Every prototype is a folder. The chrome, the design system, and the guides are already wired up — you just open it and start building.
 
-First, run the development server:
+Built on [Next.js](https://nextjs.org) + [shadcn/ui](https://ui.shadcn.com) + [Tailwind CSS](https://tailwindcss.com). No auth, no custom tokens, no bespoke chrome — just the basics, beautifully.
+
+---
+
+## 1. What you get
+
+- A homepage that lists every prototype you've added.
+- A design-system gallery (Foundations + Components) you can copy and paste from.
+- Five short in-app guides that walk you through everything once it's running.
+- A one-line installer (`./scripts/setup.sh`) that handles all the setup.
+
+## 2. Get your own copy
+
+You have two options. **If you're not sure, pick the first one.**
+
+### Option A: Use this template (recommended)
+
+This makes a clean, fresh copy of the project in your GitHub account, with no history attached.
+
+1. Click the big green **Use this template** button at the top of this page → **Create a new repository**.
+2. Pick a name (e.g. `my-playground`), choose **Public** or **Private**, and click **Create repository**.
+3. You now own a brand-new repo. Move on to step 3 below.
+
+The full visual walkthrough lives in [GitHub's docs](https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+
+### Option B: Fork
+
+Use this only if you want to receive future updates from the original. Click **Fork** in the top-right of this page.
+
+## 3. Clone it to your computer
+
+"Cloning" means copying the repo from GitHub down to your laptop so you can edit it.
+
+### With GitHub Desktop (easiest)
+
+If you've never used Terminal, this is the path for you.
+
+1. Install [GitHub Desktop](https://desktop.github.com) and sign in.
+2. **File → Clone repository** → pick your new repo from the list → choose where to save it → **Clone**.
+3. GitHub Desktop will show you where it saved the folder. Remember that path.
+
+### With Terminal
+
+If you're comfortable with the command line:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd ~/Documents
+gh repo clone <your-username>/<your-repo>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+(Or `git clone https://github.com/<your-username>/<your-repo>.git` if you don't have the [GitHub CLI](https://cli.github.com) installed.)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 4. Run it
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open Terminal (on macOS: press `Cmd + Space`, type "Terminal", hit Enter). Then:
 
-## Learn More
+```bash
+cd <your-repo>
+./scripts/setup.sh
+```
 
-To learn more about Next.js, take a look at the following resources:
+That's the whole install. The script will:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Check your operating system.
+2. Install [Bun](https://bun.sh) if you don't have it (it'll ask first).
+3. Install all the project's dependencies.
+4. Offer to start the dev server for you.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+When it's done, open [http://localhost:4000](http://localhost:4000). You'll see the playground.
 
-## Deploy on Vercel
+**Windows users:** install [WSL2](https://learn.microsoft.com/windows/wsl/install) first, then run the steps above from inside Ubuntu.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 5. Edit it
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Everything you need to know lives inside the running app. Open these in your browser once the dev server is up:
+
+- [Getting started](http://localhost:4000/design-system/guides/getting-started) — re-cap of install
+- [Add a prototype](http://localhost:4000/design-system/guides/add-a-prototype) — the most important page
+- [Styling](http://localhost:4000/design-system/guides/styling) — how to use Tailwind + shadcn
+- [Figma MCP](http://localhost:4000/design-system/guides/figma-mcp) — connect Figma to your editor
+- [Deploy](http://localhost:4000/design-system/guides/deploy) — ship it to the web
+
+The short version: to add a prototype, either click **+ New** on the homepage, or copy the folder at `src/app/_example/hello-world/` to `src/app/<your-slug>/` and edit `page.tsx`.
+
+## 6. Push your changes
+
+When you've made something you want to save:
+
+### With GitHub Desktop
+
+1. In GitHub Desktop, you'll see a list of files you changed on the left.
+2. Type a short summary at the bottom (e.g. "Add login prototype").
+3. Click **Commit to main**, then click **Push origin** at the top.
+
+### With Terminal
+
+```bash
+git add -A
+git commit -m "What I changed"
+git push
+```
+
+Your changes are now backed up on GitHub.
+
+## 7. Tech stack
+
+- [Next.js 16](https://nextjs.org) (App Router + Turbopack)
+- [React 19](https://react.dev)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [shadcn/ui](https://ui.shadcn.com) (built on [Base UI](https://base-ui.com))
+- [lucide-react](https://lucide.dev) for icons
+- [next-themes](https://github.com/pacocoursey/next-themes) for dark mode
+- [Bun](https://bun.sh) as the runtime + package manager
+
+## 8. License
+
+[MIT](LICENSE). Use it however you like.
