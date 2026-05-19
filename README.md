@@ -74,7 +74,34 @@ When it's done, open [http://localhost:4000](http://localhost:4000). You'll see 
 
 **Windows users:** install [WSL2](https://learn.microsoft.com/windows/wsl/install) first, then run the steps above from inside Ubuntu.
 
-## 5. Edit it
+## 5. Let AI help you build (recommended)
+
+If you're new to code, install [Claude Code](https://www.anthropic.com/claude-code) — Anthropic's terminal AI agent. It can read every file in this project, follow the in-app guides for you, and build prototypes from a plain-English description.
+
+Install once:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+Then, from inside your project folder:
+
+```bash
+claude
+```
+
+A chat opens in your terminal. Try prompts like:
+
+- "Read the guides at `src/app/(shell)/design-system/guides/` and then add a new prototype called `pricing-page`."
+- "Implement this Figma node as a new prototype: https://www.figma.com/design/..."
+- "Refactor `src/app/<slug>/page.tsx` to use the shadcn Card component."
+- "Why isn't dark mode flipping on this page?"
+
+You don't need to know what any of the code does — Claude Code does. It even runs `bun dev` and `bun run lint` on its own to check its work.
+
+[Cursor](https://cursor.com), [Codex](https://github.com/openai/codex), and other AI editors work too — anything that can read your project folder is a good fit for this playground.
+
+## 6. Edit it by hand
 
 Everything you need to know lives inside the running app. Open these in your browser once the dev server is up:
 
@@ -86,7 +113,7 @@ Everything you need to know lives inside the running app. Open these in your bro
 
 The short version: to add a prototype, either click **+ New** on the homepage, or copy the folder at `src/app/_example/hello-world/` to `src/app/<your-slug>/` and edit `page.tsx`.
 
-## 6. Push your changes
+## 7. Push your changes
 
 When you've made something you want to save:
 
@@ -106,7 +133,7 @@ git push
 
 Your changes are now backed up on GitHub.
 
-## 7. Tech stack
+## 8. Tech stack
 
 - [Next.js 16](https://nextjs.org) (App Router + Turbopack)
 - [React 19](https://react.dev)
@@ -116,6 +143,6 @@ Your changes are now backed up on GitHub.
 - [next-themes](https://github.com/pacocoursey/next-themes) for dark mode
 - [Bun](https://bun.sh) as the runtime + package manager
 
-## 8. License
+## 9. License
 
 [MIT](LICENSE). Use it however you like.
